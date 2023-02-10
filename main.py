@@ -14,7 +14,6 @@ from athanScrapers import AthanScraper
 def main(athan_scraper: AthanScraper, athan_recordings_list: List[AthanRecording]) -> None:
     while True:
         time_now = datetime.datetime.now()
-        print()
         athan_time = athan_scraper.get_athan_times(time_now)
 
         R = "\033[0;31;40m"  # RED
