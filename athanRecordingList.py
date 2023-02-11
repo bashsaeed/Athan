@@ -1,41 +1,41 @@
-from athanRecording import AthanRecording
+from recording import Recording
 
 
-class DubaiMallAthan(AthanRecording):
+class DubaiMall(Recording):
     path = "assets/athans/Azan at Dubai Mall And Mall Of The Emirates, UAE.mp3"
 
 
-class SanaaAthan(AthanRecording):
+class Sanaa(Recording):
     path = "assets/athans/Athan Sanaani.mp3"
 
 
-class AbdulbasitAthan(AthanRecording):
+class Abdulbasit(Recording):
     path = "assets/athans/Abdulbasit.mp3"
 
 
-class AhmedAlhadadAthan(AthanRecording):
+class AhmedAlhadad(Recording):
     path = "assets/athans/Ahmed Alhadad.mp3"
 
 
-class AlgeriaAthan(AthanRecording):
+class Algeria(Recording):
     path = "assets/athans/Algeria.mp3"
 
 
-class EidTakbir(AthanRecording):
+class EidTakbir(Recording):
     path = "assets/athans/Eid.mp3"
 
 
-class HasanSalahAthan(AthanRecording):
+class HasanSalah(Recording):
     path = "assets/athans/Hasan Salah.mp3"
 
 
-class MeccaAthan(AthanRecording):
+class Mecca(Recording):
     path = "assets/athans/Mecca.mp3"
 
 
-class MohammedSalahaldinAthan(AthanRecording):
+class MohammedSalahaldin(Recording):
     path = "assets/athans/Mohammed Salahaldin.mp3"
 
 
-class QudsAthan(AthanRecording):
+class Quds(Recording):
     path = "assets/athans/Quds.mp3"

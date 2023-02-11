@@ -7,11 +7,11 @@ from prettytable import PrettyTable
 
 import athanRecordingList
 import athanScrapers
-from athanRecording import AthanRecording
+from recording import Recording
 from athanScrapers import AthanScraper
 
 
-def main(athan_scraper: AthanScraper, athan_recordings_list: List[AthanRecording]) -> None:
+def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording]) -> None:
     while True:
         time_now = datetime.datetime.now()
         athan_time = athan_scraper.get_athan_times(time_now)
@@ -47,8 +47,8 @@ def main(athan_scraper: AthanScraper, athan_recordings_list: List[AthanRecording
             next_athan = athan_time[0]
             pause.until(next_athan)
 
-            athan_sound: AthanRecording = random.choice(athan_recordings_list)
-            athan_sound.play_athan()
+            athan_sound: Recording = random.choice(athan_recordings_list)
+            athan_sound.play_recording()
 
             athan_time = athan_time[1:]
 
@@ -61,15 +61,15 @@ def main(athan_scraper: AthanScraper, athan_recordings_list: List[AthanRecording
 if __name__ == '__main__':
     madrid_islamic_center = athanScrapers.MadridIslamicCenter()
     athan_recordings = [
-        athanRecordingList.SanaaAthan(),
-        athanRecordingList.DubaiMallAthan(),
-        athanRecordingList.AbdulbasitAthan(),
-        athanRecordingList.AhmedAlhadadAthan(),
-        athanRecordingList.AlgeriaAthan(),
+        athanRecordingList.Sanaa(),
+        athanRecordingList.DubaiMall(),
+        athanRecordingList.Abdulbasit(),
+        athanRecordingList.AhmedAlhadad(),
+        athanRecordingList.Algeria(),
         # EidTakbir(),
-        athanRecordingList.HasanSalahAthan(),
-        athanRecordingList.MeccaAthan(),
-        athanRecordingList.MohammedSalahaldinAthan(),
-        athanRecordingList.QudsAthan(),
+        athanRecordingList.HasanSalah(),
+        athanRecordingList.Mecca(),
+        athanRecordingList.MohammedSalahaldin(),
+        athanRecordingList.Quds(),
     ]
     main(athan_scraper=madrid_islamic_center, athan_recordings_list=athan_recordings)
