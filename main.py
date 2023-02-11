@@ -54,9 +54,8 @@ def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording],
             athan_sound.play_recording()
 
             if eid_period:
-                # TODO: Test
                 takbeer_times = eid_date_range.get(time_now.date())
-                current_athan_index = athan_time.index.get_loc(next_athan.index)
+                current_athan_index = athan_time.index.get_loc(tmp_athan_time.index[0])
 
                 if takbeer_times[current_athan_index]:
                     time.sleep(5)
