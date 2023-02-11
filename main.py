@@ -62,6 +62,14 @@ if __name__ == '__main__':
     madrid_islamic_center = athanScrapers.MadridIslamicCenter()
     athan_recordings = [
         athanRecordingList.SanaaAthan(),
-        # athanRecordingList.DubaiMallAthan()
+        athanRecordingList.DubaiMallAthan(),
+        athanRecordingList.AbdulbasitAthan(),
+        athanRecordingList.AhmedAlhadadAthan(),
+        athanRecordingList.AlgeriaAthan(),
+        # EidTakbir(),
+        athanRecordingList.HasanSalahAthan(),
+        athanRecordingList.MeccaAthan(),
+        athanRecordingList.MohammedSalahaldinAthan(),
+        athanRecordingList.QudsAthan(),
     ]
     main(athan_scraper=madrid_islamic_center, athan_recordings_list=athan_recordings)
