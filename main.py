@@ -6,10 +6,7 @@ from typing import List, Dict
 import pause
 from prettytable import PrettyTable
 
-import athanRecordingList
-import athanScrapers
-import eidDateRange
-import eidRecordingList
+import config
 from athanScrapers import AthanScraper
 from recording import Recording
 
@@ -75,25 +72,5 @@ def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording],
 
 
 if __name__ == '__main__':
-    madrid_islamic_center = athanScrapers.MadridIslamicCenter()
-    athan_recordings = [
-        athanRecordingList.Sanaa(),
-        athanRecordingList.DubaiMall(),
-        athanRecordingList.Abdulbasit(),
-        athanRecordingList.AhmedAlhadad(),
-        athanRecordingList.Algeria(),
-        athanRecordingList.HasanSalah(),
-        athanRecordingList.Mecca(),
-        athanRecordingList.MohammedSalahaldin(),
-        athanRecordingList.Quds(),
-    ]
-
-    eid_recordings = [
-        eidRecordingList.EidTakbir()
-    ]
-
-    fitr_eid = eidDateRange.FitrEid(date=datetime.datetime(2023, 4, 22)).takbeer_date_athan_range
-    adha_eid = eidDateRange.AdhaEid(date=datetime.datetime(2023, 6, 29)).takbeer_date_athan_range
-
-    main(athan_scraper=madrid_islamic_center, athan_recordings_list=athan_recordings,
-         eid_recordings_list=eid_recordings, eid_date_range=fitr_eid | adha_eid)
+    main(athan_scraper=config.athan_time_scraper, athan_recordings_list=config.athan_recordings,
+         eid_recordings_list=config.eid_recordings, eid_date_range=config.fitr_eid | config.adha_eid)
