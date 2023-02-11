@@ -1,20 +1,26 @@
 import datetime
 import random
-from typing import List
+import time
+from typing import List, Dict
 
 import pause
 from prettytable import PrettyTable
 
 import athanRecordingList
 import athanScrapers
-from recording import Recording
+import eidDateRange
+import eidRecordingList
 from athanScrapers import AthanScraper
+from recording import Recording
 
 
-def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording]) -> None:
+def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording],
+         eid_recordings_list: List[Recording], eid_date_range: Dict[datetime.date, List[bool]]) -> None:
     while True:
         time_now = datetime.datetime.now()
         athan_time = athan_scraper.get_athan_times(time_now)
+
+        eid_period = time_now.date() in eid_date_range
 
         R = "\033[0;31;40m"  # RED
         G = "\033[0;32;40m"  # GREEN
@@ -41,16 +47,26 @@ def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording]) ->
         )
         print(table)
 
-        athan_time = athan_time[athan_time >= time_now]
+        tmp_athan_time = athan_time[athan_time >= time_now]
 
-        while athan_time.size:
-            next_athan = athan_time[0]
+        while tmp_athan_time.size:
+            next_athan = tmp_athan_time[0]
             pause.until(next_athan)
 
             athan_sound: Recording = random.choice(athan_recordings_list)
             athan_sound.play_recording()
 
-            athan_time = athan_time[1:]
+            if eid_period:
+                # TODO: Test
+                takbeer_times = eid_date_range.get(time_now.date())
+                current_athan_index = athan_time.index.get_loc(next_athan.index)
+
+                if takbeer_times[current_athan_index]:
+                    time.sleep(5)
+                    eid_sound: Recording = random.choice(eid_recordings_list)
+                    eid_sound.play_recording()
+
+            tmp_athan_time = tmp_athan_time[1:]
 
         tomorrow = time_now.date() + datetime.timedelta(days=1)
         tomorrow = datetime.datetime(tomorrow.year, tomorrow.month, tomorrow.day, 1, 0)
@@ -66,10 +82,18 @@ if __name__ == '__main__':
         athanRecordingList.Abdulbasit(),
         athanRecordingList.AhmedAlhadad(),
         athanRecordingList.Algeria(),
-        # EidTakbir(),
         athanRecordingList.HasanSalah(),
         athanRecordingList.Mecca(),
         athanRecordingList.MohammedSalahaldin(),
         athanRecordingList.Quds(),
     ]
-    main(athan_scraper=madrid_islamic_center, athan_recordings_list=athan_recordings)
+
+    eid_recordings = [
+        eidRecordingList.EidTakbir()
+    ]
+
+    fitr_eid = eidDateRange.FitrEid(date=datetime.datetime(2023, 4, 22)).takbeer_date_athan_range
+    adha_eid = eidDateRange.AdhaEid(date=datetime.datetime(2023, 6, 29)).takbeer_date_athan_range
+
+    main(athan_scraper=madrid_islamic_center, athan_recordings_list=athan_recordings,
+         eid_recordings_list=eid_recordings, eid_date_range=fitr_eid | adha_eid)

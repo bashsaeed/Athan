@@ -1,11 +1,9 @@
-import config
 import pygame.mixer
-from abc import ABC, abstractmethod
 
 pygame.mixer.init()
 
 
-class Recording(ABC):
+class Recording:
     path: str
 
     def play_recording(self) -> None:
