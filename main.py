@@ -72,4 +72,4 @@ def main(athan_scraper: AthanScraper, athan_recordings_list: List[Recording],
 
 if __name__ == '__main__':
     main(athan_scraper=config.athan_time_scraper, athan_recordings_list=config.athan_recordings,
-         eid_recordings_list=config.eid_recordings, eid_date_range=config.fitr_eid | config.adha_eid)
+         eid_recordings_list=config.eid_recordings, eid_date_range=config.eid_dates)

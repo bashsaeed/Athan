@@ -27,3 +27,7 @@ eid_recordings = [
 
 fitr_eid = eidDateRange.FitrEid(date=datetime.datetime(2023, 4, 22)).takbeer_date_athan_range
 adha_eid = eidDateRange.AdhaEid(date=datetime.datetime(2023, 6, 29)).takbeer_date_athan_range
+
+eid_dates = {}
+eid_dates.update(fitr_eid)
+eid_dates.update(adha_eid)
