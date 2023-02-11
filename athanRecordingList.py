@@ -6,4 +6,4 @@ class DubaiMallAthan(AthanRecording):
 
 
 class SanaaAthan(AthanRecording):
-    path = "assets/athans/صوت الأذان بالمقام الصنعاني | عبدالكريم مهيوب.mp3"
+    path = "assets/athans/Athan Sanaani.mp3"
