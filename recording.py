@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import os
 
-import pygame.mixer
-
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
+
+import pygame.mixer
 
 
 class Recording:
