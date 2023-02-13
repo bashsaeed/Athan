@@ -1,16 +1,17 @@
+import os
+
 import pygame.mixer
 
-pygame.mixer.init()
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 
 
 class Recording:
     path: str
 
-    def play_recording(self) -> None:
-        pygame.mixer.music.load(self.path)
+    @classmethod
+    def play_recording(cls) -> None:
+        pygame.mixer.init()
+        pygame.mixer.music.load(cls.path)
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy():
             continue
-
-
-
