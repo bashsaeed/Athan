@@ -8,6 +8,14 @@ class DubaiMall(Recording):
 
 class Sanaa(Recording):
     path = "assets/athan/Athan Sanaani.mp3"
+    
+
+class YemenChannel2005(Recording):
+    path = "assets/athan/Athan Yemen channel 2005.mp3"
+    
+
+class YemenChannelRecent(Recording):
+    path = "assets/athan/Athan Yemen channel.mp3"
 
 
 class Abdulbasit(Recording):
