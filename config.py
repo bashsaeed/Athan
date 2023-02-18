@@ -9,13 +9,15 @@ import eidRecordingList
 athan_time_scraper = athanScrapers.MadridIslamicCenter()
 athan_recordings = [
     athanRecordingList.Sanaa,
-    athanRecordingList.DubaiMall,
-    athanRecordingList.Abdulbasit,
-    athanRecordingList.AhmedAlhadad,
+    athanRecordingList.YemenChannel2005,
+    athanRecordingList.YemenChannelRecent,
+    #athanRecordingList.DubaiMall,
+    #athanRecordingList.Abdulbasit,
+    #athanRecordingList.AhmedAlhadad,
     athanRecordingList.Algeria,
-    athanRecordingList.HasanSalah,
-    athanRecordingList.Mecca,
-    athanRecordingList.MohammedSalahaldin,
+    #athanRecordingList.HasanSalah,
+    #athanRecordingList.Mecca,
+    #athanRecordingList.MohammedSalahaldin,
     athanRecordingList.Quds,
 ]
 
