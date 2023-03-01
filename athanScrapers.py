@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import datetime
+import re
 from abc import ABC, abstractmethod
 
 import pandas as pd
@@ -40,7 +41,7 @@ class MadridIslamicCenter(AthanScraper):
 
         athan = ["Fajr", "Duhr", "Asr", "Maghrib", "Ishaa"]
 
-        prayers_table = soup.find_all("span", {"class": "dpt_start"})
+        prayers_table = soup.find_all("span", {"class": re.compile(r'^dpt_start.*')})
 
         athan_time = []
 
