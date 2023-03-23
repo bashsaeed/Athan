@@ -44,8 +44,10 @@ class MadridIslamicCenter(AthanScraper):
         prayers_table = soup.find_all("span", {"class": re.compile(r'^dpt_start.*')})
 
         athan_time = []
+        athan_index = [0, 1, 2, 3, 4]
 
-        for row in prayers_table:
+        for i in athan_index:
+            row = prayers_table[i]
             time = datetime.datetime.strptime(row.text.lower(), "%I:%M %p")
             time = datetime.datetime(date.year, date.month, date.day, time.hour, time.minute)
             athan_time.append(time)
